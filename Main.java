@@ -6,34 +6,41 @@ public class Main
     public static void main(String[] args)
     {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter number of entries");
         int n = sc.nextInt();
         College college[] = new College[n];
         for(int i=0; i<college.length; i++)
         {
+            System.out.println("Enter ID");
             int id = sc.nextInt();
             sc.nextLine();
+            System.out.println("Enter name");
             String name = sc.nextLine();
+            System.out.println("Enter contact number");
             int contactNo= sc.nextInt();
             sc.nextLine();
+            System.out.println("Enter address");
             String address = sc.nextLine();
+            System.out.println("Enter pin code");
             int pincode = sc.nextInt();
             college[i] = new College(id, contactNo,  pincode,  name,  address);  
         }
+        System.out.println("Enter the address you want to search");
         sc.nextLine();
         String searchaddress = sc.nextLine();
-                   College res1 = findCollegeWithMaximumPincode(college);
-           if(res1!=null)
-           {
-                System.out.println("id-"+res1.getId());
-                System.out.println("name-"+res1.getName());
-                System.out.println("contactNo-"+res1.getContactNo());
-                System.out.println("address-"+res1.getAddress());
-                System.out.println("pincode-"+res1.getPincode());
-           }
-           else
-            {
-                System.out.println("No College found with mentioned attribute");
-            }
+        College res1 = findCollegeWithMaximumPincode(college);
+        if(res1!=null)
+        {
+            System.out.println("id-"+res1.getId());
+            System.out.println("name-"+res1.getName());
+            System.out.println("contactNo-"+res1.getContactNo());
+            System.out.println("address-"+res1.getAddress());
+            System.out.println("pincode-"+res1.getPincode());
+        }
+        else
+        {
+            System.out.println("No College found with mentioned attribute");
+        }
         College res2 =searchCollegeByAddress(college,searchaddress);
         if(res2!=null)
         {
